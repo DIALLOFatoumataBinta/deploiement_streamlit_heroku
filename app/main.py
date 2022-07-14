@@ -36,8 +36,8 @@ def main():
     #@st.cache
     def load_data(path,filename):
         data = pd.read_csv(path+filename)
-        dd=data['SK_ID_CURR'].values
-        list_id = dd.tolist()
+        dd = pd.read_csv("DATA/app_train.csv")
+        list_id = dd['SK_ID_CURR'].tolist()
         return list_id,data
         #return data
     
