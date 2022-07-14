@@ -36,9 +36,10 @@ def main():
     #@st.cache
     def load_data(path,filename):
         data = pd.read_csv(path+filename)
-        #list_id = data['SK_ID_CURR'].tolist()
-        #return list_id,data
-        return data
+        dd=data['SK_ID_CURR'].values
+        list_id = dd.tolist()
+        return list_id,data
+        #return data
     
     def amount_formatter(amount):
 
@@ -270,8 +271,8 @@ def main():
     #code pour streamlit
     path_read = 'DATA/'
     filename="app_train.csv"
-    #list_id,df = load_data(path_read, "df_current_clients.csv")
-    df = load_data(path_read, "df_current_clients.csv")
+    list_id,df = load_data(path_read, "df_current_clients.csv")
+    #df = load_data(path_read, "df_current_clients.csv")
     df2 = pd.read_csv(path_read+filename)
     modelname="XGBoost"
     
